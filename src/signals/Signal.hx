@@ -53,12 +53,12 @@ class BaseSignal<Callback> {
 	@:noCompletion private static function __init__() {
 		untyped Object.defineProperties(BaseSignal.prototype, {
 			"numListeners": {
-				get: untyped __js__("function () { return this.get_numListeners (); }"),
-				set: untyped __js__("function (v) { return this.set_numListeners (v); }")
+				get: js.Syntax.code("function () { return this.get_numListeners (); }"),
+				set: js.Syntax.code("function (v) { return this.set_numListeners (v); }")
 			},
 			"hasListeners": {
-				get: untyped __js__("function () { return this.get_hasListeners (); }"),
-				set: untyped __js__("function (v) { return this.set_hasListeners (v); }")
+				get: js.Syntax.code("function () { return this.get_hasListeners (); }"),
+				set: js.Syntax.code("function (v) { return this.set_hasListeners (v); }")
 			},
 		});
 	}
@@ -165,7 +165,7 @@ class BaseSignal<Callback> {
 		if (fireOnce != false || priority != 0 || fireOnAdd != null) {
 			var warningMessage:String = "\nWARNING: fireOnce, priority and fireOnAdd params will be removed from 'Signals' in a future release\nInstead use daisy chain methods, eg: obj.add(callback).repeat(5).priority(1000).fireOnAdd();";
 			#if js
-			untyped __js__('console.warn(warningMessage)');
+			js.Syntax.code('console.warn(warningMessage)');
 			#else
 			trace(warningMessage);
 			#end
